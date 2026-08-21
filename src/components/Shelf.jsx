@@ -1,95 +1,35 @@
-import { useEffect, useState } from "react";
-import { getSubjectBooks } from "../lib/openLibrary.js";
-import BookCard from "./BookCard.jsx";
-import "./Shelf.css";
+import { useState } from "react";
+import "./SearchBar.css";
 
-const GENRES = [
-  { subject: "fiction", label: "Fiction", spine: "--spine-1" },
-  { subject: "fantasy", label: "Fantasy", spine: "--spine-5" },
-  { subject: "mystery_and_detective_stories", label: "Mystery", spine: "--spine-7" },
-  { subject: "romance", label: "Romance", spine: "--spine-4" },
-  { subject: "science_fiction", label: "Sci-Fi", spine: "--spine-3" },
-  { subject: "biography", label: "Biography", spine: "--spine-6" },
-  { subject: "history", label: "History", spine: "--spine-8" },
-  { subject: "poetry", label: "Poetry", spine: "--spine-2" },
-];
+export default function SearchBar({ onSearch, onClear }) {
+  const [value, setValue] = useState("");
 
-export default function Shelf({ isSaved, onOpen, onToggleSave }) {
-  const [active, setActive] = useState(GENRES[0].subject);
-  const [books, setBooks] = useState([]);
-  const [status, setStatus] = useState("idle");
+  function submit(e) {
+    e.preventDefault();
+    if (value.trim()) onSearch(value.trim());
+  }
 
-  useEffect(() => {
-    let cancelled = false;
-    setStatus("loading");
-    getSubjectBooks(active, 12)
-      .then((data) => {
-        if (cancelled) return;
-        setBooks(data.filter((b) => b.title));
-        setStatus("ready");
-      })
-      .catch(() => !cancelled && setStatus("error"));
-    return () => { cancelled = true; };
-  }, [active]);
-
-  const activeGenre = GENRES.find((g) => g.subject === active);
+  function clear() {
+    setValue("");
+    onClear();
+  }
 
   return (
-    <section className="shelf-section">
-      <div className="shelf-heading">
-        <p className="mono-label">Pick a shelf</p>
-        <h1>Pull something off the shelf.</h1>
-        <p className="shelf-sub">
-          Browse by genre the way you would in a library — no algorithm feed,
-          just shelves. Tap a spine to see what's on it.
-        </p>
-      </div>
-
-      <div className="wood-shelf" role="tablist" aria-label="Genres">
-        {GENRES.map((g, i) => (
-          <button
-            key={g.subject}
-            role="tab"
-            aria-selected={active === g.subject}
-            className={`spine ${active === g.subject ? "is-active" : ""}`}
-            style={{
-              background: `var(${g.spine})`,
-              width: 44 + ((i * 7) % 22) + "px",
-            }}
-            onClick={() => setActive(g.subject)}
-          >
-            <span>{g.label}</span>
-          </button>
-        ))}
-      </div>
-      <div className="shelf-ledge" aria-hidden="true" />
-
-      <div className="shelf-results">
-        {status === "loading" && (
-          <p className="mono-label shelf-status">fetching the {activeGenre?.label.toLowerCase()} shelf…</p>
-        )}
-        {status === "error" && (
-          <p className="mono-label shelf-status">
-            Couldn't reach the catalog. Check your connection and try another shelf.
-          </p>
-        )}
-        {status === "ready" && books.length === 0 && (
-          <p className="mono-label shelf-status">Nothing catalogued here yet.</p>
-        )}
-        {status === "ready" && books.length > 0 && (
-          <div className="book-grid">
-            {books.map((book) => (
-              <BookCard
-                key={book.key}
-                book={book}
-                saved={isSaved(book.key)}
-                onOpen={onOpen}
-                onToggleSave={onToggleSave}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
+    <form className="catalog-search" onSubmit={submit} role="search">
+      <span className="mono-label catalog-search-tab">catalog search</span>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Search by title or author…"
+        aria-label="Search books by title or author"
+      />
+      {value && (
+        <button type="button" className="btn btn-ghost" onClick={clear}>
+          Clear
+        </button>
+      )}
+      <button type="submit" className="btn btn-primary">Search</button>
+    </form>
   );
 }
