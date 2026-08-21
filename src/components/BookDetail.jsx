@@ -58,9 +58,19 @@ export default function BookDetail({ book, saved, onClose, onToggleSave }) {
               )}
             </div>
 
-            <button className="btn btn-primary detail-save" onClick={() => onToggleSave(book)}>
-              {saved ? "Remove from reading list" : "Save to reading list"}
-            </button>
+            <div className="detail-actions">
+              <button className="btn btn-primary detail-save" onClick={() => onToggleSave(book)}>
+                {saved ? "Remove from reading list" : "Save to reading list"}
+              </button>
+              
+                className="btn"
+                href={`https://openlibrary.org${book.key}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read or borrow on Open Library ↗
+              </a>
+            </div>
           </div>
         </div>
       </div>
