@@ -90,6 +90,13 @@
 }
 .detail-description p { margin: 0; }
 
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em;
+}
+.detail-actions .btn { text-decoration: none; }
+
 @media (max-width: 640px) {
   .detail-grid { grid-template-columns: 1fr; }
   .detail-cover { max-width: 160px; }
