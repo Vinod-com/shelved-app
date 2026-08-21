@@ -1,0 +1,106 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(6px);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.navbar-tabs {
+  display: flex;
+  gap: var(--space-1);
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-tab {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.5em 0.9em;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.navbar-tab:hover { color: var(--text); }
+
+.navbar-tab.is-active {
+  color: var(--text);
+}
+.navbar-tab.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0.9em;
+  right: 0.9em;
+  bottom: -0.5em;
+  height: 2px;
+  background: var(--accent);
+}
+
+.tab-count {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 0.68rem;
+  border-radius: 999px;
+  padding: 0.1em 0.5em;
+  line-height: 1.4;
+}
+
+.theme-toggle {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  transform: rotate(-12deg);
+}
+
+@media (max-width: 640px) {
+  .navbar-tab span.tab-count { display: inline-flex; }
+  .navbar-tabs { gap: 0.1em; }
+  .navbar-tab { padding: 0.5em 0.55em; font-size: 0.72rem; }
+  .brand-name { font-size: 1.05rem; }
+}

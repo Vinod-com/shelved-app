@@ -1,0 +1,6 @@
+.app-footer {
+  border-top: 1px solid var(--border);
+  padding: var(--space-3) 0;
+  margin-top: var(--space-4);
+  text-align: center;
+}

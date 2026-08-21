@@ -1,0 +1,96 @@
+.reader-section {
+  padding: var(--space-4) 0 var(--space-5);
+  max-width: 760px;
+}
+
+.reader-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+.reader-header h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  margin: 0.2em 0 0;
+}
+
+.reader-key-notice {
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  border-left: 3px solid var(--accent);
+}
+.reader-key-notice p { margin: 0; max-width: 46ch; }
+
+.reader-chat {
+  display: flex;
+  flex-direction: column;
+  height: min(60vh, 560px);
+}
+
+.reader-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.reader-msg { max-width: 88%; }
+.reader-msg p { margin: 0.15em 0 0; white-space: pre-wrap; }
+.reader-msg-role { display: block; }
+.reader-msg-user { align-self: flex-end; text-align: right; }
+.reader-msg-user p {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  padding: 0.6em 0.85em;
+  border-radius: var(--radius-md) var(--radius-md) 2px var(--radius-md);
+  display: inline-block;
+  text-align: left;
+}
+.reader-msg-assistant p {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.6em 0.85em;
+  border-radius: var(--radius-md) var(--radius-md) var(--radius-md) 2px;
+  display: inline-block;
+}
+
+.reader-typing { opacity: 0.7; font-style: italic; }
+
+.reader-starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  padding: 0 var(--space-3) var(--space-2);
+}
+.reader-starters .btn { font-size: 0.76rem; text-align: left; }
+
+.reader-error {
+  color: var(--stamp);
+  padding: 0 var(--space-3);
+}
+
+.reader-input-row {
+  display: flex;
+  gap: 0.6em;
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--border);
+}
+.reader-input-row input {
+  flex: 1;
+  padding: 0.65em 0.8em;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+}

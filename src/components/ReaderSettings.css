@@ -1,0 +1,60 @@
+.settings-card {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  max-width: 460px;
+  width: 100%;
+  padding: var(--space-4);
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.45);
+}
+
+.settings-card h2 {
+  font-size: 1.5rem;
+  margin: 0.2em 0 0.5em;
+}
+
+.settings-copy {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin: 0 0 var(--space-3);
+}
+
+.settings-form { display: flex; flex-direction: column; gap: 0.4em; }
+
+.settings-form input {
+  width: 100%;
+  padding: 0.6em 0.7em;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  margin-bottom: 0.6em;
+}
+
+.settings-advanced-toggle {
+  align-self: flex-start;
+  font-size: 0.76rem;
+  padding-left: 0;
+  margin-bottom: 0.3em;
+}
+
+.settings-advanced {
+  border-top: 1px dashed var(--border);
+  padding-top: var(--space-2);
+  margin-bottom: 0.4em;
+}
+
+.settings-hint {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin: -0.3em 0 0.7em;
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+}

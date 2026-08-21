@@ -1,0 +1,78 @@
+/* ============================================================
+   Shelved — Design Tokens
+   A "card catalog" identity: library due-date stamps, gilt page
+   edges, cloth-bound spine colors. Not the default AI palette.
+   ============================================================ */
+
+:root {
+  /* --- Core palette (named) --- */
+  --ink: #1b2430;        /* near-black navy, primary text / dark bg */
+  --ink-soft: #384354;   /* secondary text on light */
+  --paper: #efeae0;      /* warm linen page */
+  --paper-white: #faf8f3;/* card surface, lighter than paper */
+  --stamp: #b33a3a;      /* due-date stamp maroon — primary accent */
+  --stamp-dim: #8f2e2e;
+  --moss: #4c6444;       /* cloth spine green — secondary accent */
+  --gilt: #c9a227;       /* gilt page-edge gold — tertiary accent */
+  --line: rgba(27, 36, 48, 0.14);
+
+  /* --- Semantic (light theme default) --- */
+  --bg: var(--paper);
+  --bg-elevated: var(--paper-white);
+  --text: var(--ink);
+  --text-muted: var(--ink-soft);
+  --accent: var(--stamp);
+  --accent-contrast: #fff;
+  --border: var(--line);
+  --shelf-shadow: rgba(27, 36, 48, 0.22);
+
+  /* --- Type --- */
+  --font-display: "Fraunces", "Iowan Old Style", ui-serif, serif;
+  --font-body: "Literata", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* --- Scale --- */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.4rem;
+  --space-4: 2.2rem;
+  --space-5: 3.6rem;
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #14191f;
+  --bg-elevated: #1c232c;
+  --text: #efeae0;
+  --text-muted: #a9b0bd;
+  --accent: #d9645f;
+  --accent-contrast: #14191f;
+  --border: rgba(239, 234, 224, 0.14);
+  --shelf-shadow: rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+/* Spine palette — cycled by genre index, same in both themes so the
+   shelf reads consistently regardless of mode */
+:root {
+  --spine-1: #b33a3a; /* stamp maroon */
+  --spine-2: #4c6444; /* moss */
+  --spine-3: #c9a227; /* gilt */
+  --spine-4: #2f5d6b; /* teal cloth */
+  --spine-5: #6b4a8a; /* plum cloth */
+  --spine-6: #a0522d; /* leather tan */
+  --spine-7: #3d4f91; /* indigo cloth */
+  --spine-8: #7a7550; /* olive board */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
