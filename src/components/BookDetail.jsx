@@ -62,12 +62,7 @@ export default function BookDetail({ book, saved, onClose, onToggleSave }) {
               <button className="btn btn-primary detail-save" onClick={() => onToggleSave(book)}>
                 {saved ? "Remove from reading list" : "Save to reading list"}
               </button>
-              
-                className="btn"
-                href={`https://openlibrary.org${book.key}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="btn" href={`https://openlibrary.org${book.key}`} target="_blank" rel="noopener noreferrer">
                 Read or borrow on Open Library (opens in new tab)
               </a>
             </div>
