@@ -68,7 +68,7 @@ export default function BookDetail({ book, saved, onClose, onToggleSave }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Read or borrow on Open Library ↗
+                Read or borrow on Open Library (opens in new tab)
               </a>
             </div>
           </div>
