@@ -21,22 +21,14 @@ export async function searchBooks(query, limit = 20) {
 }
 
 export async function getSubjectBooks(subject, limit = 18) {
-  const url = `${BASE}/subjects/${encodeURIComponent(
-    subject
-  )}.json?limit=${limit}`;
+  const subjectPhrase = subject.replace(/_/g, " ");
+  const url = `${BASE}/search.json?q=${encodeURIComponent(
+    `subject:"${subjectPhrase}" AND language:eng`
+  )}&limit=${limit}&fields=key,title,author_name,first_publish_year,cover_i,subject,ratings_average,edition_count`;
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Subject fetch failed (${res.status})`);
   const data = await res.json();
-  return (data.works || []).map((w) => ({
-    key: w.key,
-    title: w.title,
-    author_name: (w.authors || []).map((a) => a.name),
-    first_publish_year: w.first_publish_year,
-    cover_i: w.cover_id,
-    subject: w.subject?.slice(0, 4) || [],
-    ratings_average: null,
-    edition_count: w.edition_count,
-  }));
+  return (data.docs || []).map(normalizeDoc);
 }
 
 export async function getWorkDetails(workKey) {
