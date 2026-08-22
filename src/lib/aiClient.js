@@ -7,8 +7,8 @@
 // several of those have generous free tiers, so testers aren't required
 // to have a paid OpenAI account.
 
-const DEFAULT_BASE_URL = "https://api.openai.com/v1";
-const DEFAULT_MODEL = "gpt-4o-mini";
+const DEFAULT_BASE_URL = "https://api.groq.com/openai/v1";
+const DEFAULT_MODEL = "openai/gpt-oss-20b;
 
 export function loadAISettings() {
   try {
