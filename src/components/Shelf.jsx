@@ -18,6 +18,16 @@ const GENRES = [
   { subject: "horror", label: "Horror", spine: "--spine-1" },
   { subject: "cooking", label: "Cooking", spine: "--spine-4" },
   { subject: "humor", label: "Humor", spine: "--spine-8" },
+  { subject: "young_adult_fiction", label: "Young Adult", spine: "--spine-5" },
+  { subject: "thriller", label: "Thriller", spine: "--spine-7" },
+  { subject: "classics", label: "Classics", spine: "--spine-2" },
+  { subject: "philosophy", label: "Philosophy", spine: "--spine-6" },
+  { subject: "travel", label: "Travel", spine: "--spine-3" },
+  { subject: "art", label: "Art", spine: "--spine-1" },
+  { subject: "children", label: "Children's", spine: "--spine-4" },
+  { subject: "psychology", label: "Psychology", spine: "--spine-8" },
+  { subject: "drama", label: "Drama", spine: "--spine-5" },
+  { subject: "music", label: "Music", spine: "--spine-7" },
 ];
 
 export default function Shelf({ isSaved, onOpen, onToggleSave }) {
