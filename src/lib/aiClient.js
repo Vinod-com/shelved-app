@@ -8,7 +8,7 @@
 // to have a paid OpenAI account.
 
 const DEFAULT_BASE_URL = "https://api.groq.com/openai/v1";
-const DEFAULT_MODEL = "openai/gpt-oss-20b;
+const DEFAULT_MODEL = "openai/gpt-oss-20b";
 
 export function loadAISettings() {
   try {
